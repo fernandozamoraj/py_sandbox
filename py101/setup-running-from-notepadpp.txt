@@ -1,0 +1,7 @@
+
+******RUN PYTHON fROm NOTEPAD++****************************
+to run python from notepad plus plus
+
+click run and select the python Lib/idlelib/idle.pyw
+then add this argument to the command "$(FULL_CURRENT_PATH)"
+this will run the current file that you are in...

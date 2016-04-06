@@ -1,0 +1,15 @@
+use PDB for debugging
+python -m pdb  <scriptname>
+
+https://docs.python.org/2/library/pdb.html
+
+use pyvenv for creating python virtual environment
+
+
+distutils for distributing your code
+used inside a setup.py
+main function in distutils is setup
+easyinstall 
+use easyinstall to installl pip
+use pip to install nose
+nose can run your unit tests

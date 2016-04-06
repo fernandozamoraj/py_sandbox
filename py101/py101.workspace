@@ -1,0 +1,20 @@
+<NotepadPlus>
+    <Project name="py101">
+        <Folder name="Folder Name" />
+        <File name="help_example.py" />
+        <File name="math_playground.py" />
+        <File name="myscript.py" />
+        <File name="setup-running-from-notepadpp.txt" />
+        <File name="py101.workspace" />
+        <File name="reverse.py" />
+        <File name="sorting.py" />
+        <File name="strings.py" />
+        <File name="test.py" />
+        <File name="urlib_experiment.py" />
+        <File name="util.py" />
+        <File name="unit_test_demo.py" />
+        <File name="distribute-and-install-python-packages.txt" />
+        <File name="list-comprehensions.py" />
+        <File name="file-reading-writing.py" />
+    </Project>
+</NotepadPlus>

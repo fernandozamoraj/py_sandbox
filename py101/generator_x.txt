@@ -1,0 +1,13 @@
+#generator example
+def persons():
+	yield 'Fernando'
+	yield 'Linda'
+	yield 'Mario'
+	
+	
+person_list = persons()
+
+print ('{0}'.format(type(person_list)))
+
+for person in person_list:
+	print(person)
