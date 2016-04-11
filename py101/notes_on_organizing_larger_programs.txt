@@ -1,0 +1,32 @@
+Notes on python - beyond the basics on plural sigh by Austin Bingham and Rober Smallshire
+sys.path
+
+1. Where is sys.path stored. How do you modify it.
+1A. sys.path.append('path')
+1. PYTHONPATH
+namespace packages... one namespace two or more different folders
+
+package vs. module
+package is a directory where module is a code file
+
+2. Typical setup
+   project_name
+   |
+   |---__main__.py [optional if making it executable]
+   |---project_name
+   |   |---__init__.py
+   |   |---more_source.py
+   |   |---subpackage1
+   |   |   |---__init__.py
+   |   | 
+   |   |---test
+   |       |---__init__.py
+   |       |---test_code.py
+   |   
+   |---setup.py
+
+Modules as singletons
+
+
+
+
