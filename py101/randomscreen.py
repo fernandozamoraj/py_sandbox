@@ -8,13 +8,12 @@ def do_random_screen():
     while(True):
         result += 1
         line = ''
-        for i in range(0, 70):
-           line = line +  chr(randint(65,127))
-        time.sleep(1)
+        for i in range(0, 128):
+           line = line +  chr(7)#chr(randint(65,127))
+        time.sleep(randint(1,10000)*.001);
         print(line)
         if(result == 30):
             break;
-        pdb.set_trace()
             
     return result
 

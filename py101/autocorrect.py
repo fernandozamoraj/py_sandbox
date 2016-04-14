@@ -1,27 +1,32 @@
 import unittest
 
-MIN_SCORE = .6
+MIN_SCORE = .7
+g_words = []
 
+def print1(line):
+    pass
+    #print(line);
+    
 def is_possible_replacement(target_word, possible_word):
     global MIN_SCORE
 	
     score = 0
 	
-    print('*'*40)
+    print1('*'*40)
   
-    print('words: {0} {1}'.format(target_word, possible_word))	
+    print1('words: {0} {1}'.format(target_word, possible_word))	
     if(target_word[0] == possible_word[0]):
         score += 100
     if(target_word[-1] == possible_word[-1]):
         score += 100
 
     first_set = {x for x in target_word[1:-1]}
-    print(first_set)
+    print1(first_set)
     second_set = {x for x in possible_word[1:-1]}
-    print(second_set)
+    print1(second_set)
 
     intersection_set = first_set.intersection(second_set)
-    print(intersection_set)	
+    print1(intersection_set)	
 	
     if(len(second_set) > len(first_set)):
         longer_set = len(second_set)
@@ -43,16 +48,52 @@ def is_possible_replacement(target_word, possible_word):
 	
     total_score = (score_for_matching_chars + score_first_and_last_chars) - demerit;
 	
-    print('first half: {0}'.format(score_for_matching_chars))
-    print('second half: {0}'.format(score_first_and_last_chars))
-    print('total score: {0}'.format(total_score))
+    print1('first half: {0}'.format(score_for_matching_chars))
+    print1('second half: {0}'.format(score_first_and_last_chars))
+    print1('total score: {0}'.format(total_score))
     return total_score > MIN_SCORE
 	
-	
-	
-def search_words(targe_word):
 
-    possible_words = get_possible_words()
+def get_words(target_word):
+    global g_words
+
+    if(len(g_words) < 1):    
+        file = open('C:/fernando/words.txt')
+        g_words = file.read().split('\n')
+    filtered_words = []   
+        
+    for word in g_words:        
+        if(len(word) > 0 and word[0] == target_word[0]):
+            print1(word)
+            filtered_words.append(word)
+            
+    return filtered_words
+    
+def correct_word(target_word):
+    for word in get_words(target_word):
+        if(is_possible_replacement(target_word, word)):
+            return word 
+def is_word(target_word):
+    for word in get_words(target_word):
+        if(word == target_word):
+            return True
+            
+    return False
+            
+def prompt():
+    
+    while(True):
+        print('\nEntere a word: \n');
+        user_entry = input();
+        new_word = user_entry
+        
+        if(is_word(user_entry) == False):
+            new_word = correct_word(user_entry)
+     
+        print('Your corrected word is: {0}'.format(new_word))
+        if(new_word == 'quit'):
+            break;        
+	
 
 class test_auto_correct(unittest.TestCase):
 
@@ -112,5 +153,7 @@ class test_auto_correct(unittest.TestCase):
         self.assertTrue(itis)			
 	
 if(__name__ == '__main__'):
-    unittest.main()
+    #unittest.main()
+    #get_words('foo') 
+    prompt()    
 	
