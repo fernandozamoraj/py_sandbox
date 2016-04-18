@@ -14,24 +14,20 @@ def is_possible_replacement(target_word, possible_word):
 	
     print1('*'*40)
   
-    print1('words: {0} {1}'.format(target_word, possible_word))	
     if(target_word[0] == possible_word[0]):
         score += 100
     if(target_word[-1] == possible_word[-1]):
         score += 100
 
     first_set = {x for x in target_word[1:-1]}
-    print1(first_set)
     second_set = {x for x in possible_word[1:-1]}
-    print1(second_set)
 
     intersection_set = first_set.intersection(second_set)
-    print1(intersection_set)	
 	
     if(len(second_set) > len(first_set)):
         longer_set = len(second_set)
     else:
-	    longer_set = len(first_set)
+        longer_set = len(first_set)
 	
     score_for_matching_chars = ((len(intersection_set)*100.0) / (longer_set*100.0))*.75
     
@@ -43,22 +39,16 @@ def is_possible_replacement(target_word, possible_word):
     else:
         diff = len(target_word) - len(possible_word)
         demerit = (diff/(len(target_word)*1.0))*.5
-
-		
 	
     total_score = (score_for_matching_chars + score_first_and_last_chars) - demerit;
 	
-    print1('first half: {0}'.format(score_for_matching_chars))
-    print1('second half: {0}'.format(score_first_and_last_chars))
-    print1('total score: {0}'.format(total_score))
     return total_score > MIN_SCORE
 	
-
 def get_words(target_word):
     global g_words
 
     if(len(g_words) < 1):    
-        file = open('C:/fernando/words.txt')
+        file = open('C:/Dev/python/py_sandbox/words.txt')
         g_words = file.read().split('\n')
     filtered_words = []   
         
