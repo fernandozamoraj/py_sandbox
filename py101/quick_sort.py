@@ -1,5 +1,6 @@
 
-numbers = [3,1,9,7,8,2,5,6,4,0,11,15,13, 14,21,3]
+numbers = [3,1,9,7,8,2,5,6,4,0,11,15,13, 14,21,3,3,1,9,7,8,2,5,6,4,0,11,15,13, 14,21,3]
+print_stack = []
 
 def get_pivot(mynumbers):
 	return  (mynumbers[0]+mynumbers[-1])/2
@@ -50,25 +51,43 @@ def quick_sort(mynumbers):
         return mynumbers
         
     pivot = get_pivot(mynumbers)
-    print(pivot)
 	
     left_partition = get_left(mynumbers, pivot)
     righ_partition = get_right(mynumbers, pivot)
 	
+
+    
     left_partition = quick_sort(left_partition)
     righ_partition = quick_sort(righ_partition)
 	
+    
+    
     for r in righ_partition:
         left_partition.append(r)
 	
+    
+    print('pivot: {0}'.format(pivot))
+    print('left: {0}'.format(left_partition))
+    print('right: {0}'.format(righ_partition))
     print('joined: {0}'.format(left_partition))
     input()
     
+    print_stack.append('joined: {0}'.format(left_partition))
+    print_stack.append('right: {0}'.format(righ_partition))
+    print_stack.append('left: {0}'.format(left_partition))
+    print_stack.append('pivot: {0}'.format(pivot))
+    
     return left_partition
 	
+   
 numbers = quick_sort(numbers)
 	
 print(numbers)	
+
+print("****beginning of replay****")
+for line in print_stack:
+    print(print_stack.pop())
+    input()
 	
 
 
