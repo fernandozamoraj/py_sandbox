@@ -25,10 +25,18 @@ def edits1(word):
     transposes = [a + b[1] + b[0] +b[2:] for a, b in splits if len(b)>1]
     replaces   = [a + c + b[1:] for a, b in splits for c in alphabet]
     inserts    = [a + c + b     for a, b in splits for c in alphabet]
+    
+    print('splits: {0}'.format(splits))
+    print('deletes: {0}'.format(deletes))
+    print('transposes: {0}'.format(transposes))
+    print('replaces: {0}'.format(replaces))
+    print('inserts: {0}'.format(inserts))
+    
+    
     return set(deletes + transposes + replaces + inserts)
 
 def known_edits2(word):
-    global NWORDS
+    #global NWORDS
     return set(e2 for e1 in edits1(word) for e2 in edits1(e1) if e2 in NWORDS)
 
 def known(words):
@@ -47,6 +55,7 @@ def correct(word):
     #this change made by Fernando from original
     newcandidates = [w for w in candidates if word[0] == w[0]]
 	
+    print('candidates: {0}'.format(candidates))
     #if(len(newcandidates) > 0):
     #    return max(newcandidates, key=NWORDS.get)
     #else:
