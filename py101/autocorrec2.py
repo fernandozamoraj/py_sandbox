@@ -15,7 +15,7 @@ def train(features):
        model[f] += 1
     return model
 
-NWORDS = train(words(open('words.txt').read()))
+NWORDS = train(words(open('big.txt').read()))
 
 alphabet = 'abcdefghijklmnopqrstuvwxyz'
 
@@ -25,6 +25,7 @@ def edits1(word):
     transposes = [a + b[1] + b[0] +b[2:] for a, b in splits if len(b)>1]
     replaces   = [a + c + b[1:] for a, b in splits for c in alphabet]
     inserts    = [a + c + b     for a, b in splits for c in alphabet]
+    return set(deletes + transposes + replaces + inserts)
 
 def known_edits2(word):
     global NWORDS
@@ -32,15 +33,39 @@ def known_edits2(word):
 
 def known(words):
     global NWORDS
-    return set(w for w in words if w in NWORDS)
+    if(words is None):
+        return set()
+    else:
+        return set(w for w in words if w in NWORDS)
 
 def correct(word):
     global NWORDS
     candidates = known([word]) or known(edits1(word)) or known_edits2(word) or [word]
+	
+    #get all words that start with same first letter... it is unlikely that
+    #a speller does not know what character a word starts with
+    #this change made by Fernando from original
+    newcandidates = [w for w in candidates if word[0] == w[0]]
+	
+    #if(len(newcandidates) > 0):
+    #    return max(newcandidates, key=NWORDS.get)
+    #else:
     return max(candidates, key=NWORDS.get)
+		
+def prompt_stupid_autocorrect():
+    while(True):
+        print('\nEnter your message: ') 
+        user_entry = input().split(' ')
+        new_sentence = ''
+        for word in user_entry:	
+            correction = correct(word)
+            new_sentence = new_sentence + correction + ' '
+        
+        print(new_sentence)
+    
+    
 
 def prompt():
-    print(NWORDS)
     while(True):
         print('\nEnter a word: ') 
         user_entry = input()
@@ -49,5 +74,5 @@ def prompt():
 
 
 if(__name__ == '__main__'):
-    prompt()
+    prompt_stupid_autocorrect()
  
