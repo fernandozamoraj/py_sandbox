@@ -3,7 +3,7 @@ numbers = [3,1,9,7,8,2,5,6,4,0,11,15,13, 14,21,3,3,1,9,7,8,2,5,6,4,0,11,15,13, 1
 print_stack = []
 
 def get_pivot(mynumbers):
-	return  (mynumbers[0]+mynumbers[-1])/2
+    return  (mynumbers[0]+mynumbers[-1])/2
 	
 	
 def get_left(mynumbers, pivot):
