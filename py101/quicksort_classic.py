@@ -1,6 +1,6 @@
 #numbers = [5,3,7,12,4,5,3,7,12,4,67,45,12,23,78,90,1,2,45]
-#numbers = [1,2,3,4,5,6,7,8,9,10]
-numbers = [1,10,2,8,4,6,5,3,7,9,10,2,8,4,6,5,3,7,9,10,2,8,4,6,5,3,7,9,10,2,8,4,6,5,3,7,9,10,2,8,4,6,5,3,7,9,10,2,8,4,6,5,3,7,9,10,2,8,4,6,5,3,7,9,10,2,8,4,6,5,3,7,9]
+numbers = [1,2,3,4,5,6,7,8,9,10]
+#numbers = [1,10,2,8,4,6,5,3,7,9,10,2,8,4,6,5,3,7,9,10,2,8,4,6,5,3,7,9,10,2,8,4,6,5,3,7,9,10,2,8,4,6,5,3,7,9,10,2,8,4,6,5,3,7,9,10,2,8,4,6,5,3,7,9,10,2,8,4,6,5,3,7,9]
 
 qs_count = 0
 swap_count = 0
@@ -20,7 +20,9 @@ def quick_sort(target_list, start, end):
 
     if(pivot_index < end):
         quick_sort(target_list, pivot_index, end)
-		
+
+def compare(x, y):
+    return y - x		
 		
 def partition(target_list, start, end):
 
@@ -31,9 +33,9 @@ def partition(target_list, start, end):
     j = end
 	
     while(i <= j):
-        while(target_list[i] < pivot):
+        while(compare(target_list[i], pivot) > 0):
             i += 1
-        while(target_list[j] > pivot):
+        while(compare(target_list[j], pivot) < 0):
             j -= 1
         
         if(i <= j):
@@ -45,7 +47,10 @@ def partition(target_list, start, end):
             j -= 1
             
     return i			
-              		
+    
+def compare(x, y):
+    return x - y
+    
 print('len(numbers): {0}'.format(len(numbers)))  
 print(numbers)        
 quick_sort(numbers, 0, len(numbers)-1)
