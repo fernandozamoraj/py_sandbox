@@ -12,6 +12,7 @@ def is_possible_replacement(target_word, possible_word):
 	
     score = 0
 	
+   
     print1('*'*40)
   
     if(target_word[0] == possible_word[0]):

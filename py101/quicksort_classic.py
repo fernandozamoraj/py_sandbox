@@ -12,7 +12,7 @@ def quick_sort(target_list, start, end):
         return
 		
     qs_count += 1    
-    print('list: {0}'.format(target_list))
+    #print('list: {0}'.format(target_list))
     pivot_index = partition(target_list, start, end)
     
     if(start < pivot_index - 1):
@@ -51,9 +51,9 @@ def partition(target_list, start, end):
 def compare(x, y):
     return x - y
     
-print('len(numbers): {0}'.format(len(numbers)))  
-print(numbers)        
+#print('len(numbers): {0}'.format(len(numbers)))  
+#print(numbers)        
 quick_sort(numbers, 0, len(numbers)-1)
-print(numbers)	
-print('quick_sort count: {0}'.format(qs_count))
-print('swap count: {0}'.format(swap_count))
+#print(numbers)	
+#print('quick_sort count: {0}'.format(qs_count))
+#print('swap count: {0}'.format(swap_count))
