@@ -1,7 +1,6 @@
-car,28900,3.65,550
-car2,3820,3.29,320
-visa1,5277,17.9,142
-visa2,2800,17.9,80
-personalloan,4730,27,200
-extracash,0,0,150
-bigfund,30000,0,20
+bill,lendingclub,11500,13,500
+bill,walmart,5500,17,132
+bill,extracash,0,0,150
+bill,bigfund,30000,0,20
+extra,350,1
+extra,350,2
