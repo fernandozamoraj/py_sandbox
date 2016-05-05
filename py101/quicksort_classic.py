@@ -12,7 +12,7 @@ def quick_sort(target_list, start, end):
         return
 		
     qs_count += 1    
-    #print('list: {0}'.format(target_list))
+
     pivot_index = partition(target_list, start, end)
     
     if(start < pivot_index - 1):
