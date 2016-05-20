@@ -1,0 +1,72 @@
+#:kivy 1.0.9
+         
+
+<NumberTextBox>:
+    size: 220, 100
+    
+    Label:
+        size: 200, 35
+        x: root.x+10
+        y: root.y+50
+        text: str(root.label)
+                    
+    TextInput:
+        size: 200, 35
+        x: root.x+10
+        y: root.y
+        
+        #bind object to TextInput
+        text: str(root.value)
+        
+        #bind back to object 
+        on_text: root.value = int(self.text)       
+
+<DataTable>:
+    TextInput:
+        size: 300, 400
+        x: root.x+10
+        top: root.top
+        text: str(root.data)
+        
+<MainForm>:
+    size: root.size
+    startamount: start_amount
+    monthlyamount: monthly_amount
+    apr: apr_amount
+    years: years
+    datatable: data_table
+    submit: submit_button
+
+    NumberTextBox:
+        id: start_amount
+        x: root.x
+        y: root.y + (root.height-100)
+        
+    NumberTextBox:
+        id: monthly_amount
+        x: root.x
+        y: root.y + (root.height-200)
+        
+    NumberTextBox:
+        id: apr_amount
+        x: root.x
+        y: root.y + (root.height-300)
+        
+    NumberTextBox:
+        id: years
+        x: root.x
+        y: root.y + (root.height-400)
+        
+    
+    Button:
+        id: submit_button   
+        x: root.x+10
+        y: root.y + (root.height-520)
+        size: 200, 50
+        text: "Submit"
+         
+    DataTable:
+        id: data_table
+        x: root.x + 250
+        top: root.top -100
+                
