@@ -1,0 +1,6 @@
+msft,Microsoft Corp,USA,45.99,1.2,30000,120000,30000
+msft,Microsoft Corp,USA,45.99,1.2,30000,120000,30000
+msft,Microsoft Corp,USA,45.99,1.2,30000,120000,30000
+ ,Microsoft Corp,USA,45.99,1.2,not a num,120000,30000
+
+msft,Microsoft Corp,USA,45.99,1.2,30000,0,30000
